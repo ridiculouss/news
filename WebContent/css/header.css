@@ -1,0 +1,33 @@
+@charset "gb2312";
+/* CSS Document */
+
+body{ color:#333; background:#fff;}
+a{outline: none; /* for Forefox */ } 
+a{star:expression(this.onFocus=this.blur()); /* for Ie*/ } 
+a:link,a:visited{ color:#333; text-decoration:none; font-size:12px;}
+a:hover{ color:#de3237; text-decoration:none}
+.wrap{width:1004px; margin:0 auto;}
+/**top**/
+.top{ width:100%; background:#f7f7f7; border-bottom:1px solid #dad9d7; height:28px; line-height:28px;}
+/**header**/
+.header{ width:100%; padding:10px 0;}
+.search_box{ padding:30px 0 15px;}
+.search{ width:520px; height:68px;float:right;}
+#lenu1 li{float:left;display:block;cursor:pointer;width:58px;text-align:center;line-height:29px;height:29px;}
+#lenu1 li span{ float:right; color:#c0c0c0; font-weight:normal}
+#lenu1 li.hover{color: #de3237;font-weight:bold;}
+.lain1_box{clear:both;background:#df3237;width:514px; padding:3px; line-height:30px;}
+.sertxt{ border:1px solid #a64b54; width:410px; height:30px; padding-left:5px;}
+.serbtn{width:97px; height:30px; background:none; border:none;cursor:pointer; color:#fff; font-size:14px; font-weight:bold}
+#lain1 ul{display:none;text-align:left;}
+#lain1 ul.block{display: block;}
+.nav{ width:100%; border:1px solid #D32A2F; border-left:0; border-right:0; height:32px; line-height:32px; background:#de3237;}
+.nav_left{ float:left;}
+.nav_left li{ float:left; margin-right:10px;}
+.nav_left li a:link,.nav_left li a:visited{ color:#fff; font-size:14px; font-weight:bold; padding:0 20px; line-height:32px; text-decoration:none; display:block;}
+.nav_left li a:hover{ background:#ba0100}
+.nav_right{ float:right}
+.nav_right li{ float:left; padding-left:10px;}
+.nav_right li a:link,.nav_right li a:visited{ padding-right:10px; color:#F6E5B7; text-decoration:none}
+.nav_right li a:hover{ color:#fff; text-decoration:none}
+.nav_right li span{ float:right; color:#ff6666;}

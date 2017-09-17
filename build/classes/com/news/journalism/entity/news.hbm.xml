@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.news.journalism.entity.News" table="news">
+		<id name="nid">
+			<generator class="native" />
+		</id>
+		<property name="title" />
+		<property name="source" />
+		<property name="coulumn" />
+		<property name="date" />
+		<property name="image" />
+		<property name="click" />
+		<property name="author" />
+		<property name="content" type="string">
+			<column name="content" sql-type="text"/>
+		</property>
+		<property name="is_hot" />
+		<property name="is_check" />
+		<property name="is_issue" />
+		<many-to-one name="user" class="com.news.user.entity.User" column="uid" lazy="false" not-null="true"/>
+	</class>
+</hibernate-mapping>

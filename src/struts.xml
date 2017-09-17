@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	
+	<package name="default" namespace="/" extends="struts-default">
+		
+		<!-- 配置首页访问的Action -->
+		<action name="index" class="newsAction" >
+			<result name="skipIndex">/index.jsp</result>
+		</action>
+		
+		<!-- 配置用户的Action -->
+		<action name="user_*" class="userAction" method="{1}">
+			<result name="registPage">/regist.jsp</result>
+			<result name="loginPage">/login.jsp</result>
+			<result name="registSuccess" type="redirectAction">index.action</result>
+			<result name="loginSuccess" type="redirectAction">index.action</result>
+			<result name="exitSuccess" type="redirectAction">index.action</result>
+			<result name="centerSuccess">/user/home.jsp</result>
+			<result name="centerFail">/login.jsp</result>
+		</action> 
+		
+		<!-- 配置验证码的Action -->
+		<action name="checkImg" class="checkImgAction" ></action>
+		
+		<!-- 配置index新闻模块的Action -->
+		<action name="index_*" class="newsAction" method="{1}">
+			<result name="findSuccess">/news.jsp</result>
+			<result name="findCoulumnSuccess">/coulumn.jsp</result>
+			<result name="findKeyword">/keyword.jsp</result>
+		</action>
+	
+		<!-- 配置User新闻模块的Action -->
+		<action name="userNews_*" class="userNewsAction" method="{1}">
+			<result name="createSuccess" type="redirectAction">userNews_findByUid.action?page=1</result>
+			<result name="findByUidSuccess">/user/findNews.jsp</result>
+			<result name="IssueSuccess">/user/issue.jsp</result>
+			<result name="notIssueSuccess">/user/notIssue.jsp</result>
+			<result name="changeSuccess" type="redirectAction">userNews_findByIssue.action?page=1&amp;issue=0</result>
+			<result name="showUserNews">/user/news.jsp</result>
+		</action>
+		
+		<!-- 配置Admin新闻模块的Action -->
+		<action name="adminNews_*" class="adminNewsAction" method="{1}">
+			<result name="findAll">/admin/findNews.jsp</result>
+			<result name="CheckSuccess">/admin/isCheck.jsp</result>
+			<result name="notCheckSuccess">/admin/notCheck.jsp</result>
+			<result name="changeSuccess" type="chain">
+                <param name="actionName">adminNews_findByCheck</param>
+                <param name="page">1</param>
+                <param name="check">${check}</param>
+            </result> 
+		</action>
+		
+		<!-- 配置管理员的Action -->
+		<action name="admin_*" class="adminAction" method="{1}">
+			<result name="loginPage">/admin/login.jsp</result>
+			<result name="loginSuccess" type="redirectAction">admin_skip.action</result>
+			<result name="centerSuccess">/admin/home.jsp</result>
+			<result name="centerFail">/admin/login.jsp</result>
+		</action> 
+	</package>
+	
+</struts>
